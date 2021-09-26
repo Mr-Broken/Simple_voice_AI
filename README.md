@@ -2,21 +2,23 @@
 
 A simple Voice Assistance code you. Must try to execute this code
 
-
+    #importing essential modules
+    
     import datetime
     import speech_recognition as sr
     import pyttsx3
     import wikipedia
-    import pyaudio
-    from googlesearch import search
     import webbrowser, os, sys, bs4 ,requests
-
+    
+    #setup the main engine to work the rest of the  code
+    
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
     print(voices[1].id)
     engine.setProperty('voice', voices[1].id)
 
-
+    #Setup the Audio command 
+    
     def speak(audio):
         engine.say(audio)
         engine.runAndWait()
@@ -82,6 +84,9 @@ A simple Voice Assistance code you. Must try to execute this code
                 webbrowser.open('www.instagram.com')
             elif 'great work' in query:
                 speak("thank you Boss")
+                
+            elif 'bye' or 'good bye', or 'ok bye' or 'exit' or 'quit' in query:
+                speak("Good bye Boss. Have a nice Day")
 
 
 
